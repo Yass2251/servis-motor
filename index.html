@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#202522">
+  <title>MotoCare — Workshop Management</title>
+  <meta name="description" content="MotoCare adalah aplikasi manajemen bengkel motor untuk mencatat pelanggan, kendaraan, servis, pembayaran, suku cadang, dan laporan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell" id="app-shell">
+    <div class="sidebar-scrim" data-action="close-drawer" aria-hidden="true"></div>
+
+    <aside class="sidebar" id="sidebar" aria-label="Navigasi utama MotoCare">
+      <div class="sidebar-brand">
+        <button class="brand-mark" data-nav="dashboard" aria-label="Buka dashboard MotoCare">
+          <svg class="icon icon-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </button>
+        <div class="brand-copy">
+          <strong>MotoCare</strong>
+          <span>Workshop Management</span>
+        </div>
+        <button class="icon-btn sidebar-close" data-action="close-drawer" aria-label="Tutup menu">
+          <span data-icon="x"></span>
+        </button>
+      </div>
+
+      <div class="sidebar-section-label">Menu Utama</div>
+      <nav class="sidebar-nav" aria-label="Menu aplikasi">
+        <button class="nav-item is-active" data-nav="dashboard" data-sidebar-nav="dashboard" title="Dashboard">
+          <span class="nav-icon" data-icon="dashboard"></span>
+          <span class="nav-label">Dashboard</span>
+          <span class="nav-active-dot" aria-hidden="true"></span>
+        </button>
+        <button class="nav-item" data-nav="services" data-sidebar-nav="services" title="Servis">
+          <span class="nav-icon" data-icon="wrench"></span>
+          <span class="nav-label">Servis</span>
+          <span class="nav-active-dot" aria-hidden="true"></span>
+        </button>
+        <button class="nav-item" data-nav="customers" data-sidebar-nav="customers" title="Pelanggan">
+          <span class="nav-icon" data-icon="users"></span>
+          <span class="nav-label">Pelanggan</span>
+          <span class="nav-active-dot" aria-hidden="true"></span>
+        </button>
+        <button class="nav-item" data-nav="vehicles" data-sidebar-nav="vehicles" title="Kendaraan">
+          <span class="nav-icon" data-icon="motorcycle"></span>
+          <span class="nav-label">Kendaraan</span>
+          <span class="nav-active-dot" aria-hidden="true"></span>
+        </button>
+        <button class="nav-item" data-nav="inventory" data-sidebar-nav="inventory" title="Suku Cadang">
+          <span class="nav-icon" data-icon="package"></span>
+          <span class="nav-label">Suku Cadang</span>
+          <span class="nav-active-dot" aria-hidden="true"></span>
+        </button>
+        <button class="nav-item" data-nav="reports" data-sidebar-nav="reports" title="Laporan">
+          <span class="nav-icon" data-icon="chart"></span>
+          <span class="nav-label">Laporan</span>
+          <span class="nav-active-dot" aria-hidden="true"></span>
+        </button>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-nav="settings" data-sidebar-nav="settings" title="Pengaturan">
+          <span class="nav-icon" data-icon="settings"></span>
+          <span class="nav-label">Pengaturan</span>
+          <span class="nav-active-dot" aria-hidden="true"></span>
+        </button>
+
+        <button class="theme-toggle" data-action="toggle-theme" aria-label="Ubah tema tampilan" aria-pressed="false" title="Ubah tema">
+          <span class="theme-toggle-icon" data-theme-icon></span>
+          <span class="theme-toggle-copy">
+            <strong data-theme-label>Mode Gelap</strong>
+            <small>Ubah tampilan</small>
+          </span>
+          <span class="switch" aria-hidden="true"><span class="switch-thumb"></span></span>
+        </button>
+
+        <div class="sidebar-info">
+          <span data-icon="info"></span>
+          <div>
+            <strong>Penyimpanan lokal</strong>
+            <span>Data tersimpan di browser ini · v1.0</span>
+          </div>
+        </div>
+
+        <button class="nav-item collapse-control" data-action="collapse-sidebar" title="Ciutkan menu">
+          <span class="nav-icon" data-icon="panel-left"></span>
+          <span class="nav-label">Ciutkan Menu</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div class="topbar-heading">
+          <button class="icon-btn mobile-menu" data-action="open-drawer" aria-label="Buka menu navigasi">
+            <span data-icon="menu"></span>
+          </button>
+          <div class="heading-copy">
+            <div class="breadcrumb"><span>MotoCare</span><span class="breadcrumb-sep">/</span><span id="breadcrumb-page">Dashboard</span></div>
+            <h1 id="page-title">Dashboard</h1>
+          </div>
+        </div>
+
+        <div class="header-search" id="header-search">
+          <span class="search-icon" data-icon="search"></span>
+          <input type="search" id="global-search" placeholder="Cari servis, pelanggan, kendaraan..." autocomplete="off" aria-label="Pencarian global" aria-controls="global-search-results" aria-expanded="false">
+          <span class="search-shortcut" aria-hidden="true">Ctrl K</span>
+          <div class="search-results" id="global-search-results" hidden></div>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="header-date">
+            <span data-icon="calendar"></span>
+            <span id="current-date">—</span>
+          </div>
+          <button class="btn btn-primary btn-new-service" data-action="open-service-modal" aria-label="Buat servis baru">
+            <span data-icon="plus"></span>
+            <span class="btn-label">Servis Baru</span>
+          </button>
+          <div class="notification-wrap">
+            <button class="icon-btn notification-button" id="notification-button" data-action="toggle-notifications" aria-label="Notifikasi" aria-haspopup="true" aria-expanded="false">
+              <span data-icon="bell"></span>
+              <span class="notification-badge" id="notification-badge" hidden>0</span>
+            </button>
+            <div class="notification-popover" id="notification-popover" hidden></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-content" id="app-content" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div class="modal-root" id="modal-root" hidden>
+    <div class="modal-backdrop" data-modal-backdrop></div>
+    <section class="modal-panel" id="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal-header">
+        <div class="modal-heading">
+          <h2 id="modal-title">Detail</h2>
+          <p id="modal-subtitle"></p>
+        </div>
+        <button class="icon-btn modal-close" data-action="close-modal" aria-label="Tutup dialog">
+          <span data-icon="x"></span>
+        </button>
+      </header>
+      <div class="modal-body" id="modal-body"></div>
+      <footer class="modal-footer" id="modal-footer" hidden></footer>
+    </section>
+  </div>
+
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="false"></div>
+  <div class="print-receipt" id="print-receipt" aria-hidden="true"></div>
+
+  <noscript>
+    <div class="noscript-message">MotoCare memerlukan JavaScript untuk berjalan. Silakan aktifkan JavaScript pada browser Anda.</div>
+  </noscript>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
